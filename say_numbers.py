@@ -3,6 +3,10 @@
 import random
 import os
 
+import pyttsx3
+engine = pyttsx3.init()
+
+
 """Given an int32 number, print it in English."""
 def int_to_en(num):
     #https://stackoverflow.com/questions/8982163/how-do-i-tell-python-to-convert-integers-into-words
@@ -68,7 +72,11 @@ for i in range(questions):
 
     print(f'\n{a}    ', end="")
     _ = input('')
-    print(int_to_en(a))
+    number_words = int_to_en(a)
+    print(number_words)
+
+    engine.say(number_words)
+    engine.runAndWait()
 
 
 
